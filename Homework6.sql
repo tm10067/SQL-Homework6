@@ -26,7 +26,7 @@ BEGIN
     DELETE FROM users_communities
      WHERE users_communities.user_id = delete_user_id;
     
-	DELETE FROM messages
+    DELETE FROM messages
      WHERE messages.to_user_id = delete_user_id OR messages.from_user_id = delete_user_id;
     
     DELETE FROM friend_requests
@@ -42,16 +42,16 @@ BEGIN
        SET profiles.photo_id = NULL
      WHERE media.user_id = delete_user_id;
 
-	DELETE FROM media
+    DELETE FROM media
      WHERE media.user_id = delete_user_id;
     
-	DELETE FROM profiles
+    DELETE FROM profiles
      WHERE profiles.user_id = delete_user_id;
     
-	DELETE FROM users
-	 WHERE users.id = delete_user_id;
+    DELETE FROM users
+     WHERE users.id = delete_user_id;
     
-	RETURN delete_user_id;
+    RETURN delete_user_id;
 
 END; // 
 
@@ -139,3 +139,6 @@ DELIMITER ;
 
 INSERT INTO Communities
 VALUES (55, 'abc');
+
+INSERT INTO Communities
+VALUES (56, 'abcde');
