@@ -128,7 +128,7 @@ CREATE TRIGGER CommunityNameTrigger BEFORE INSERT ON Communities
 FOR EACH ROW BEGIN
    IF (LENGTH(new.name) < 5) THEN
        SIGNAL SQLSTATE '45000'
-			SET MESSAGE_TEXT = 'Длина названия сообщества (поле name) должна быть не менее 5 символов';
+	   SET MESSAGE_TEXT = 'Длина названия сообщества (поле name) должна быть не менее 5 символов';
        INSERT INTO CommunityNameTrigger_exception_table VALUES();
    END IF; 
 END; // 
